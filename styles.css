@@ -480,3 +480,60 @@
     .lb-close, .lb-prev, .lb-next {
       cursor: pointer !important;
     }
+
+    /* ── MEJORAS MOBILE (max 600px) ── */
+    @media(max-width:600px){
+      /* Nav */
+      nav { padding:1.2rem 1.4rem; }
+      nav::after { left:1.4rem; right:1.4rem; }
+
+      /* Hero */
+      .hero-left { padding:6rem 1.4rem 3rem; }
+      .hero-title { font-size:clamp(3rem,14vw,5rem); }
+      .hero-right { height:55vw; min-height:220px; }
+      .hero-desc { font-size:.9rem; }
+
+      /* Nosotros */
+      #nosotros { padding:5rem 1.4rem; }
+      .nos-header { padding-bottom:3rem; margin-bottom:3rem; }
+      .sec-title { font-size:clamp(2.2rem,10vw,3.5rem); }
+      .nos-card { padding:2.5rem 0; }
+      .nos-card-name { font-size:clamp(2rem,9vw,3.2rem); }
+      .nos-card-bio { font-size:.88rem; }
+
+      /* Proyectos */
+      #proyectos { padding:5rem 1.4rem; }
+      .proy-entry { grid-template-columns:3rem 1fr; gap:0 1rem; padding:2rem 0; }
+      .proy-num { font-size:1.8rem; }
+      .proy-title { font-size:clamp(1.8rem,8vw,3rem); margin-bottom:1rem; }
+      .proy-desc { font-size:.88rem; line-height:1.9; }
+      .proy-filter { flex-wrap:wrap; gap:.8rem; }
+
+      /* Slider */
+      .proy-slider { margin-top:1.2rem; }
+      .proy-slider-btn { width:44px; height:44px; font-size:1.2rem; } /* más fácil de tocar */
+      .proy-slider-controls { gap:1rem; margin-top:.8rem; }
+
+      /* Contacto */
+      #contacto { padding:5rem 1.4rem; }
+      .cont-cols { grid-template-columns:1fr; }
+      .cont-col:first-child { border-right:none; border-bottom:1px solid var(--line); }
+      .cont-col { padding:2.5rem 1.4rem; }
+      .cont-arq-title { font-size:clamp(2rem,9vw,3rem); }
+      .cont-item { gap:0 1.2rem; padding:1.8rem 0; }
+      .cont-item-val { font-size:1.2rem; }
+
+      /* Lightbox mobile */
+      .lb-img { max-width:100vw; max-height:80vh; }
+      .lb-close { top:1rem; right:1.2rem; font-size:1.5rem; }
+      .lb-prev { left:0; padding:1rem; font-size:1.6rem; }
+      .lb-next { right:0; padding:1rem; font-size:1.6rem; }
+      .lb-counter { bottom:1rem; }
+
+      /* Footer */
+      footer { padding:1.5rem 1.4rem; text-align:center; }
+
+      /* Mobile nav overlay */
+      .nav-overlay a { font-size:2.5rem; }
+      .nav-overlay { padding:3rem 1.4rem; }
+    }

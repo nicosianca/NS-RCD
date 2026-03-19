@@ -66,3 +66,38 @@ function sliderMove(trackId, dir){
   const counter = document.getElementById(countId);
   if(counter) counter.textContent = (sliderState[trackId]+1) + ' / ' + imgs.length;
 }
+
+// ── SWIPE TÁCTIL EN SLIDERS ──
+document.querySelectorAll('.proy-slider').forEach(slider => {
+  let startX = 0, isDragging = false;
+  const track = slider.querySelector('.proy-slider-track');
+  if (!track) return;
+
+  slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+
+  slider.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 40) return; // ignorar swipes muy cortos
+    const trackId = track.id;
+    if (diff > 0) sliderMove(trackId, 'next');
+    else          sliderMove(trackId, 'prev');
+  }, { passive: true });
+});
+
+// ── SWIPE TÁCTIL EN LIGHTBOX ──
+let lbTouchStartX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', e => {
+  lbTouchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+document.getElementById('lightbox').addEventListener('touchend', e => {
+  const diff = lbTouchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) < 40) return;
+  if (diff > 0) lbMove(1);
+  else          lbMove(-1);
+}, { passive: true });
